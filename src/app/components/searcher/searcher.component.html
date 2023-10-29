@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>List of Books</h2>
+    <input type="text" class="form-control mb-3" [(ngModel)]="searchTerm" placeholder="Buscar por título">
+    <!-- <button class="btn btn-primary" (click)="openNewBookDialog()">Nuevo Libro</button> -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author Name</th>
+                <th>Published</th>
+                <th>Year</th>
+                <th>Description</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of pagedBooks">
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ getAuthorName(book.authorId) }}</td>
+                <td>{{ book.published }}</td>
+                <td>{{ book.year }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.dateCreated | date }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination [(ngModel)]="currentPage" [totalItems]="books.length" [itemsPerPage]="itemsPerPage"
+        (pageChanged)="setPage($event.page)"></pagination>
+</div>
