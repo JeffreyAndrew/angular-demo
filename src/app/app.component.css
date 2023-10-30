@@ -8,12 +8,10 @@
     display: flex;
 }
 
-/* Estilos para el menú */
 .custom-menu {
     width: 20%;
 }
 
-/* Estilos para el contenido principal */
 .custom-content {
     width: 80%;
 }

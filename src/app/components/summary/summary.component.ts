@@ -41,12 +41,9 @@ export class SummaryComponent implements OnInit {
     // Gráfico de barras de libros por año
     const yearsData = books.map(book => book.year);
     const uniqueYears = Array.from(new Set(yearsData));
-
-    // Ordena los años de menor a mayor
-    uniqueYears.sort((a, b) => a - b);
+    uniqueYears.sort((a, b) => a - b); // Ordena los años de menor a mayor
 
     const booksByYearData = uniqueYears.map(year => yearsData.filter(y => y === year).length);
-
     const barChart = echarts.init(document.getElementById('barChart'));
     const barOption = {
       title: {
@@ -67,8 +64,6 @@ export class SummaryComponent implements OnInit {
       }]
     };
     barChart.setOption(barOption);
-
-
 
     // Gráfico de Pie libros publicados y no publicados
     const totalBooks = books.length;
@@ -157,7 +152,6 @@ export class SummaryComponent implements OnInit {
     };
     pieChart2.setOption(pieOption2);
   }
-
 
   callServiceFunction(): void {
     this.bookService.generateRandomRecords();

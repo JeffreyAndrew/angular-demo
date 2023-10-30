@@ -1,7 +1,12 @@
 <div class="container">
-    <h2>List of Books</h2>
-    <input type="text" class="form-control mb-3" [(ngModel)]="searchTerm" placeholder="Buscar por título">
-    <!-- <button class="btn btn-primary" (click)="openNewBookDialog()">Nuevo Libro</button> -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="col-md-6">
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Buscar por título">
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="openCreateBookDialog()">New Book</button>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -19,7 +24,7 @@
                 <td>{{ book.id }}</td>
                 <td>{{ book.title }}</td>
                 <td>{{ getAuthorName(book.authorId) }}</td>
-                <td>{{ book.published }}</td>
+                <td>{{ book.published ? 'SI' : 'NO' }}</td>
                 <td>{{ book.year }}</td>
                 <td>{{ book.description }}</td>
                 <td>{{ book.dateCreated | date }}</td>

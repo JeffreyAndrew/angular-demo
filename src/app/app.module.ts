@@ -11,6 +11,7 @@ import { SearcherComponent } from './components/searcher/searcher.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
 import { CreateBookComponent } from './components/create-book/create-book.component';
 import { CreateAuthorComponent } from './components/create-author/create-author.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CreateAuthorComponent } from './components/create-author/create-author.
     AppRoutingModule,
     PaginationModule.forRoot(),
     BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

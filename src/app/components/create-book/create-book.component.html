@@ -1,36 +1,38 @@
-<!-- new-book-dialog.component.html -->
-<!-- <div class="modal-header">
-    <h4 class="modal-title">Add New Book</h4>
-</div>
-<div class="modal-body">
-    <form [formGroup]="newBookForm" (ngSubmit)="onSubmit()">
+<div class="container">
+    <h2>Create Book</h2>
+    <form (ngSubmit)="onSubmit()" style="padding:3%;" #bookForm="ngForm">
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" formControlName="title" required>
+            <input type="text" id="title" name="title" [(ngModel)]="book.title" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="authorId">Author</label>
-            <select class="form-control" id="authorId" formControlName="authorId" required>
-                <option [ngValue]="null">Select an author</option>
- 
-                <option *ngFor="let author of authors" [ngValue]="author.id">{{ author.name }}</option>
-            </select>
+            <label for="authorId">Author ID</label>
+            <input type="number" id="authorId" name="authorId" [(ngModel)]="book.authorId" class="form-control"
+                required>
         </div>
-        <div class="form-group">
-            <label for="published">Published</label>
-            <input type="checkbox" class="form-check-input" id="published" formControlName="published">
+        <div class="form-check">
+            <input type="checkbox" id="published" name="published" [(ngModel)]="book.published"
+                class="form-check-input">
+            <label for="published" class="form-check-label">Published</label>
         </div>
         <div class="form-group">
             <label for="year">Year</label>
-            <input type="number" class="form-control" id="year" formControlName="year" required>
+            <input type="number" id="year" name="year" [(ngModel)]="book.year" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" formControlName="description"></textarea>
+            <textarea id="description" name="description" [(ngModel)]="book.description" class="form-control"
+                required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="dateCreated">Date Created</label>
+            <input type="date" id="dateCreated" name="dateCreated" [(ngModel)]="book.dateCreated" class="form-control"
+                required>
+        </div>
+        <br />
+        <div class="form-group d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Create Book</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelCreation()">Cancelar</button>
         </div>
     </form>
 </div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="onClose()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="onSubmit()">Add Book</button>
-</div> -->
